@@ -34,13 +34,13 @@ firefox /home/damien/git/scripts/custom-new-tab/index.html
 4. Cherchez `browser.newtab.url` (si disponible)
 5. Définissez la même valeur
 
-**Méthode 3 : Avec l'addon New Tab Override**
+**Méthode 3 : Avec l'addon New Tab Override (URL GitHub Pages — recommandé)**
 1. Installez [New Tab Override](https://addons.mozilla.org/fr/firefox/addon/new-tab-override/)
-2. Configurez l'URL locale : `file:///home/damien/git/scripts/custom-new-tab/index.html`
+2. Configurez l'URL : `https://demgien.github.io/custom-new-tab/`
 
-⚠️ **Note CSP** : Si la page se charge mais les flux RSS ne fonctionnent pas (erreurs CSP dans la console), utilisez plutôt la **Méthode 4** ci-dessous.
+Cette méthode évite les restrictions CSP/Mixed Content des fichiers `file://` et fonctionne sans configuration locale.
 
-**Méthode 4 : Serveur HTTP local (recommandé pour éviter les problèmes CSP)**
+**Méthode 4 : Serveur HTTP local (alternative hors-ligne)**
 
 Lancez un serveur HTTP simple dans le dossier :
 
@@ -75,6 +75,21 @@ EOF
 sudo systemctl enable custom-new-tab.service
 sudo systemctl start custom-new-tab.service
 ```
+
+## 🌐 Hébergement (GitHub Pages)
+
+Ce projet est hébergé sur GitHub Pages :
+
+- URL publique : https://demgien.github.io/custom-new-tab/
+
+Pour (ré)activer le déploiement GitHub Pages sur votre dépôt :
+
+1. GitHub → `Settings` → `Pages`
+2. Build and deployment → Source : `Deploy from a branch`
+3. Branch : `main` — Dossier : `/ (root)`
+4. Enregistrez. Le site sera disponible en quelques minutes.
+
+Déploiement continu : à chaque `git push` sur `main`, GitHub Pages publie automatiquement la nouvelle version.
 
 ## 🛠️ Personnalisation
 
